@@ -27,8 +27,10 @@ const config: Config = {
         DEFAULT: '#33B033',
       },
     },
-    extend: {
+    fontFamily: {
+      poppins: ['Poppins', 'sans-serif'],
     },
+    extend: {},
   },
   plugins: [],
 };
