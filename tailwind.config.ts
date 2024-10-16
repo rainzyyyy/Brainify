@@ -7,27 +7,27 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      colors: {
-        babyPowder: {
-          DEFAULT: '#FFFFFA',
-        },
-        chineseBlack: {
-          DEFAULT: '#161718',
-        },
-        middleGrey: {
-          DEFAULT: '#8B8982',
-        },
-        palatinateBlue: {
-          DEFAULT: '#2F52E0',
-        },
-        graniteGrey: {
-          DEFAULT: '#65625A',
-        },
-        wageningenGreen: {
-          DEFAULT: '#33B033',
-        },
+    colors: {
+      babyPowder: {
+        DEFAULT: '#FFFFFA',
       },
+      chineseBlack: {
+        DEFAULT: '#161718',
+      },
+      middleGrey: {
+        DEFAULT: '#8B8982',
+      },
+      palatinateBlue: {
+        DEFAULT: '#2F52E0',
+      },
+      graniteGrey: {
+        DEFAULT: '#65625A',
+      },
+      wageningenGreen: {
+        DEFAULT: '#33B033',
+      },
+    },
+    extend: {
     },
   },
   plugins: [],
