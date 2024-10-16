@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "../app/styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Brainify",
@@ -13,6 +13,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="../assets/favicons/brainify.png" type="image/x-icon" />
+      </head>
       <body>
         {children}
       </body>
