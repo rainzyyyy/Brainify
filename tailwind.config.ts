@@ -26,6 +26,9 @@ const config: Config = {
       wageningenGreen: {
         DEFAULT: '#33B033',
       },
+      ao: {
+        DEFAULT: '#008000',
+      }
     },
     fontFamily: {
       poppins: ['Poppins', 'sans-serif'],
