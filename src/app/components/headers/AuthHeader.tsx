@@ -19,7 +19,7 @@ const AuthHeader: React.FC = () => {
 
         <Link href="#">
           {/* TODO: link a page */}
-          <div className="text-xl text-middleGrey hover:text-babyPowder">
+          <div className="text-xl text-middleGrey hover:text-babyPowder py-2">
             Log in
           </div>
         </Link>
