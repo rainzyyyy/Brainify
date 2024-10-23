@@ -1,9 +1,40 @@
+'use client';
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 import AuthHeader from "./components/headers/AuthHeader";
 
 export default function Home() {
+  const router = useRouter();
+  const [email, setEmail] = useState<string>("");
+  const [error, setError] = useState<string>("");
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+    setError(""); // clear error message on input change
+  }
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    setError(""); // clear previous error
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!email) {
+      alert("Email address is required.");
+    } else if (!emailRegex.test(email)) {
+      alert("Please enter a valid email address.");
+    } else {
+      alert("Email validation is passed. Proceeding to your account...");
+      setEmail(""); // reset email after successful submission
+      router.push("/all/test");
+    }
+  };
+
   return (
     <>
       <AuthHeader />
@@ -23,15 +54,13 @@ export default function Home() {
             Brainify makes coding education enjoyable and motivating for everyone.
           </p>
 
-          <div className='flex items-center mt-10'>
-            <input type="email" placeholder="Enter your email address to get started" className='border border-middleGrey rounded-md px-4 py-3 text-chineseBlack w-96 focus:outline-none' required />
+          <form onSubmit={handleSubmit} className='flex items-center mt-10' noValidate>
+            <input type="email" id="email" value={email} onChange={handleEmailChange} placeholder="Enter your email address to get started" className={`border rounded-md px-4 py-3 text-chineseBlack w-96 focus:outline-none`} required aria-describedby="emailError" />
 
-            <Link href=""> {/* TODO: link to a sign up page */}
-              <button className='ml-8 inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-10 font-medium text-babyPowder transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50'>
-                Sign up
-              </button>
-            </Link>
-          </div>
+            <button type="submit" className='ml-8 inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-10 font-medium text-babyPowder transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50' disabled={!!error}>
+              Sign up
+            </button>
+          </form>
         </div>
 
         <div className='w-2/3 ml-24 relative -top-36'>
